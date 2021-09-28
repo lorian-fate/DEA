@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <title>FIND Your DEA</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'my_FIRST_APP/index.css' %}">
+</head>
+<body>
+    <header id="myhead">
+        <a href="{% url 'home' %}">home</a>
+    </header>
+    <h1 style="color:brown; text-align: center;">ALL AVAILABLE DEA</h1>
+        <table id="t01">
+            <tr>
+                <th>ID</th>
+                <th>CODIGO DEA</th>
+                <th>DIRECCIÓN UBICACION</th>
+                <th>DIRECCIÓN PORTAL</th>
+                <th>HORARIO ACCESO</th>
+                <th>LINK</th>
+                <!--<th>COORDENADA X</th>
+                <th>COORDENADA X</th>-->
+            </tr>
+            {% for dea in my_dea %}
+            <tr>
+                <td>{{dea.id}}</td>
+                <td>{{dea.codigo_dea}}</td>
+                <td>{{dea.direccion_ubicacion}}</td>
+                <td>{{dea.direccion_portal_numero}}</td>
+                <td>{{dea.horario_acceso}}</td>
+                <td><a href="{{my_url}}">click here</a></td>
+                <!--<td><a href="{% url 'my_map' %}">click here</a></td>-->
+                <!--<td>{{dea.x_utm}}</td>
+                <td>{{dea.x_utm}}</td>-->
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
